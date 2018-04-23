@@ -1,8 +1,9 @@
 #include <iostream>
-#include <string>
 #include <sstream>
+#include <string>
 
-std::string Regel(int lengte, int stap){
+std::string Regel(int lengte, int stap)
+{
     std::string output = "";
 
     for (int i = 1; i <= lengte; i++) {
@@ -15,7 +16,8 @@ std::string Regel(int lengte, int stap){
     return output;
 }
 
-std::string Pagina(int min, int max, int stap, bool terug){
+std::string Pagina(int min, int max, int stap, bool terug)
+{
     std::string output = "";
     if (min < 0 || max < min) {
         return "";
@@ -25,13 +27,12 @@ std::string Pagina(int min, int max, int stap, bool terug){
     while (min < max) {
         output += Regel(min, stap) + "\n";
         min++;
-        
     }
     if (!terug) {
         return output;
     }
 
-    while( max >= origineelMinParam) {
+    while (max >= origineelMinParam) {
         output += Regel(max, stap) + "\n";
         max--;
     }

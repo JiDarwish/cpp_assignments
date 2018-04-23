@@ -1,19 +1,20 @@
-#include <string>
 #include <iostream>
+#include <string>
 
-std::string produceerReeks( int x ){
+std::string produceerReeks(int x)
+{
     std::string output = std::to_string(x);
 
-    while(x != 1) {
+    while (x != 1) {
 
-        if(x % 2 == 0) {
+        if (x % 2 == 0) {
             x /= 2;
-        } else{
+        } else {
             x = x * 3 + 1;
         }
         output += "," + std::to_string(x);
     }
-    return output;  
+    return output;
 }
 
 int main()
