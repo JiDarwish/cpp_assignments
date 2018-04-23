@@ -1,12 +1,6 @@
-#include <bitset>
 #include <iostream>
 #include <sstream>
 #include <string>
-
-union Convertable {
-    char character;
-    float myFloat;
-};
 
 std::string charToHex(char c)
 {
@@ -36,16 +30,22 @@ std::string intToHex(int x)
 
 std::string floatToHex(float f)
 {
+
+    union ConvertableFloat {
+        long long myLong;
+        float myFloat;
+    };
+    ConvertableFloat converter;
+    converter.myFloat = f;
+
     std::ostringstream buf;
-    Convertable toBeConverted;
-    toBeConverted.myFloat = f;
-    buf << std::hex << (unsigned int)toBeConverted.character << std::endl; // what ???
+    buf << std::hex << converter.myLong;
     return buf.str();
 }
 
 int main()
 {
-    std::string result = charToHex('C');
+    std::string result = floatToHex(1.2);
     std::cout << result << std::endl;
     return 0;
 }
