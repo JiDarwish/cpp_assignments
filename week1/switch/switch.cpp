@@ -1,5 +1,6 @@
 #include "switch.h"
 #include <iostream>
+#include <unordered_map>
 
 int processCode(int getal, int code)
 {
@@ -23,23 +24,14 @@ int processCode(int getal, int code)
     return getal;
 }
 
-int getInstructieCode(std::string instructie)
-{
-    if (instructie == "shift left 3") {
-        return 0;
-    } else if (instructie == "kwadraat") {
-        return 1;
-    } else if (instructie == "deel door 2") {
-        return 2;
-    } else {
-        return 4;
-    }
-}
-
 int processInstructie(int getal, std::string instructie)
 {
-    int code = getInstructieCode(instructie);
-    switch (code) {
+    std::unordered_map<std::string, int> instrucRegister; // map with key value pairs of the instruction and itś corresponding key
+    instrucRegister.insert(std::make_pair("shift left 3", 0));
+    instrucRegister.insert(std::make_pair("kwadraat", 1));
+    instrucRegister.insert(std::make_pair("deel door 2", 2));
+
+    switch (instrucRegister[instructie]) {
     case 0:
         getal = getal << 3;
         break;
@@ -58,7 +50,7 @@ int processInstructie(int getal, std::string instructie)
 int main()
 {
     int getal = 38;
-    int result = processCode(getal, 0);
+    int result = processInstructie(3, "kwadraat");
     std::cout << result << std::endl;
     return 0;
 }
