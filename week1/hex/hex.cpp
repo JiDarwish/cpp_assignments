@@ -9,7 +9,8 @@ std::string charToHex(char c)
 
     std::string out = buf.str();
 
-    if (out.length() < 3) { // 3 because there is always a last character terminating a string which is '\n'
+    if (out.length() < 3)
+    { // 3 because there is always a last character terminating a string which is '\n'
         out = "0" + out;
     }
     return out;
@@ -22,7 +23,8 @@ std::string intToHex(int x)
 
     std::string out = buf.str();
 
-    if (out.length() < 3) { // 3 because there is always a last character terminating a string which is '\n'
+    if (out.length() < 3)
+    { // 3 because there is always a last character terminating a string which is '\n'
         out = "0" + out;
     }
     return out;
