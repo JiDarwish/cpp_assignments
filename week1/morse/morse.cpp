@@ -5,9 +5,9 @@
 std::string Regel(int lengte, int stap)
 {
     std::string output = "";
-
+    
     for (int i = 1; i <= lengte; i++) {
-        if (i % stap) {
+        if (i % stap == 0) {
             output += "-";
         } else {
             output += ".";
@@ -18,10 +18,10 @@ std::string Regel(int lengte, int stap)
 
 std::string Pagina(int min, int max, int stap, bool terug)
 {
-    std::string output = "";
     if (min < 0 || max < min) {
         return "";
     }
+    std::string output = "";
     int origineelMinParam = min;
 
     while (min < max) {

@@ -5,8 +5,14 @@
 #include <vector>
 #include <string>
 
-
-enum Operator { ONBEKEND, PLUS, MIN, MAAL, DEEL };
+enum Operator
+{
+  ONBEKEND,
+  PLUS,
+  MIN,
+  MAAL,
+  DEEL
+};
 
 // -----------------
 // de functie getTokens zal een regel splitsen in tokens.
@@ -28,8 +34,7 @@ Operator getOperator(std::string token);
 // is de operator ONBEKEND dan is de return waarde false.
 // zijn de benodigde integers niet op de stapel te vinden, dan return false.
 // anders, return true na het manipuleren van de stapel.
-bool procesOperator( std::stack<int>& stapel, Operator oper);
-
+bool procesOperator(std::stack<int> &stapel, Operator oper);
 
 // -----------------
 // Deze functie krijgt een RPN string aangeboden en probeert de uitkomst te bepalen.
@@ -43,6 +48,6 @@ bool procesOperator( std::stack<int>& stapel, Operator oper);
 //
 // aan het einde van de rpn-string verwerking, mag er niet meer dan 1 integer op de stack staan.
 //    dit is dan de uitkomst.
-bool compute(std::string rpn, int& uitkomst);
+bool compute(std::string rpn, int &uitkomst);
 
 #endif // einde RPN_H
