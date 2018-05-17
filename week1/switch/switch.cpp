@@ -5,7 +5,8 @@
 int processCode(int getal, int code)
 {
 
-    switch (code) {
+    switch (code)
+    {
     case 0:
         //shift left 2
         getal = getal << 2;
@@ -31,7 +32,8 @@ int processInstructie(int getal, std::string instructie)
     instrucRegister.insert(std::make_pair("kwadraat", 1));
     instrucRegister.insert(std::make_pair("deel door 2", 2));
 
-    switch (instrucRegister[instructie]) {
+    switch (instrucRegister[instructie])
+    {
     case 0:
         getal = getal << 3;
         break;

@@ -31,14 +31,11 @@ Operator getOperator(std::string token)
 bool procesOperator(std::stack<int> &stapel, Operator oper)
 {
 
-  if (oper == Operator::ONBEKEND)
+  if (oper == Operator::ONBEKEND || stapel.size() < 2)
   {
     return false;
   }
-  if (stapel.size() < 2)
-  {
-    return false;
-  }
+
   int num1 = stapel.top();
   stapel.pop();
   int num2 = stapel.top();
