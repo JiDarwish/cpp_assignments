@@ -2,13 +2,19 @@
 #define SHUFFLE_H
 
 #include <string>
+#include <vector>
 
-class shuffle {
-private:
+class shuffle
+{
+  private:
     // hier je eigen PRIVATE data items en methoden
-public:
+    int numOfNumbers;
+    uint score;
+    std::vector<int> numbers;
+
+  public:
     // constructor met de parameter geeft aan hoe lang de reeks getallen moet zijn.
-    shuffle( uint );
+    shuffle(uint);
     // de destructor
     ~shuffle();
     // de functie die de reeks getallen manipuleert volgens de opgave.
