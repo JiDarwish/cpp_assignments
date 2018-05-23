@@ -74,7 +74,7 @@ bool compute(std::string rpn, int &uitkomst)
     bool isOperator = procesOperator(integers, oper);
     if (!isOperator)
     {
-      int intFromStr = atoi(strAlsVec[i].c_str());
+      int intFromStr = atoi(strAlsVec[i].c_str()); // string to int (c string)
       integers.push(intFromStr);
     }
   }

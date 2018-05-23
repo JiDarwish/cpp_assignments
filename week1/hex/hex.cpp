@@ -5,7 +5,7 @@
 std::string charToHex(char c)
 {
     std::ostringstream buf;
-    buf << std::hex << (unsigned int)c << std::endl;
+    buf << std::hex << std::uppercase << (unsigned int)c << std::endl;
 
     std::string out = buf.str();
 
@@ -19,9 +19,9 @@ std::string charToHex(char c)
 std::string intToHex(int x)
 {
     std::ostringstream buf;
-    buf << std::hex << x << std::endl;
+    buf << std::hex << std::uppercase << x << std::endl;
 
-    std::string out = buf.str();
+    std::string out = buf.str(); // convert to string
 
     if (out.length() < 3)
     { // 3 because there is always a last character terminating a string which is '\n'
@@ -41,7 +41,7 @@ std::string floatToHex(float f)
     converter.myFloat = f;
 
     std::ostringstream buf;
-    buf << std::hex << converter.myLong;
+    buf << std::hex << std::uppercase << converter.myLong;
     return buf.str();
 }
 

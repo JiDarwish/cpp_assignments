@@ -8,7 +8,7 @@ std::string ToonLijst(element *lijst)
   std::stringstream buf;
   while (lijst != NULL)
   {
-    buf << (sep++ ? ", " : "");
+    buf << (sep++ ? " -> " : ""); // sepertor gaat niets toevoegen in het eerste iteratie
     buf << lijst->woord;
     lijst = lijst->next;
   }
@@ -30,8 +30,8 @@ void VoegToeAanBeginLijst(element **lijst, std::string tekst)
 {
   element *newElement = new element;
   newElement->woord = tekst;
-  newElement->next = *lijst;
-  (*lijst) = newElement;
+  newElement->next = *lijst; // new node points to the old linked list
+  (*lijst) = newElement;     // linkedlist pointer points now to the new linkedlist
 }
 
 void VoegToeAlfabetisch(element **lijst, std::string tekst)
@@ -45,8 +45,9 @@ void VoegToeAlfabetisch(element **lijst, std::string tekst)
   {
     if ((*lijst)->woord[0] < newEl->woord[0])
     {
-      newEl->next = tweedeTraversal;
-      (*lijst)->next = newEl;
+      // when first letter of the new word is greater than where's being traversed in the linked list append it
+      newEl->next = tweedeTraversal; // new element points now to the rest of the linkedlist
+      (*lijst)->next = newEl;        // where we are points now to the new element which ^
       return;
     }
 
@@ -56,6 +57,7 @@ void VoegToeAlfabetisch(element **lijst, std::string tekst)
       tweedeTraversal = tweedeTraversal->next;
     }
   }
+  // if it's never returned before (line 51) it's the last word in the linkedlist
   (*lijst)->next = newEl;
 }
 

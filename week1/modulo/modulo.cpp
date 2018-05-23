@@ -12,9 +12,9 @@ unsigned int getRest( unsigned int basis, unsigned int getal) {
 std::string Representeer(unsigned int basis, unsigned int getal) {
     std::string representation = "";
     while (getal != 0) {
-        int rest = getal % basis;
+        int rest = getRest(basis, getal);
         representation = std::to_string(rest) + representation;
-        getal /= basis;
+        getal = getFactor(basis, getal);
     }
 
     return representation;
