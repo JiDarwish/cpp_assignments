@@ -12,7 +12,7 @@ int intCompare(int eerste, int tweede)
 int strCompare(std::string eerste, std::string tweede)
 {
   // 0 if equal otherwise 1 if eerste is greater and -1 if tweede is greater
-  return eerste[0] == tweede[0] ? 0 : eerste[0] > tweede[0] ? 1 : -1;
+  return eerste[0] == tweede[0] ? strCompare(eerste.substr(1), tweede.substr(1)) : eerste[0] > tweede[0] ? 1 : -1;
 }
 
 int strLengteCompare(std::string eerste, std::string tweede)
@@ -28,12 +28,7 @@ void addToBtree(Node **rootptr, std::string woord, int (*compare)(std::string, s
     return;
   }
 
-  if (compare(woord, (*rootptr)->woord) == 0)
-  {
-    // als ze beginnen met dezelfde letter gebruik compare met lengte van string
-    addToBtree(rootptr, woord, strLengteCompare);
-  }
-  else if (compare(woord, (*rootptr)->woord) > 0)
+  if (compare(woord, (*rootptr)->woord) > 0)
   {
     if ((*rootptr)->rechts == NULL)
     {
@@ -68,8 +63,8 @@ int main()
   Node *node = new Node;
   node->woord = "di";
 
-  addToBtree(&node, "ei", &strCompare);
-  addToBtree(&node, "ci", &strCompare);
+  addToBtree(&node, "raad", &strCompare);
+  addToBtree(&node, "rood", &strCompare);
   addToBtree(&node, "ai", &strCompare);
 
   std::stringstream buf;

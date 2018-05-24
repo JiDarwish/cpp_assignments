@@ -4,6 +4,10 @@
 std::string produceerReeks(int x)
 {
   std::string output = std::to_string(x);
+  if (x <= 0)
+  {
+    return output;
+  }
 
   while (x != 1)
   {

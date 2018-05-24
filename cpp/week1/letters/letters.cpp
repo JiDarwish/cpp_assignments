@@ -9,7 +9,16 @@ std::string maakGrootofKlein(const std::string bron)
 
     for (int i = 0; i < bron.length(); i++)
     {
-        char newChar = bron.at(i) ^ 32; // sixth position (xor will toggle 6th bit)
+        char newChar = bron.at(i);
+        if ((int)newChar % 2 == 0)
+        {
+            newChar |= 32; // set bit
+        }
+        else
+        {
+            newChar &= ~(32); // clear bit
+        }
+
         result << newChar;
     }
 

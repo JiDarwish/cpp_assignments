@@ -4,40 +4,48 @@
 
 std::string Regel(int lengte, int stap)
 {
-    std::string output = "";
-    
-    for (int i = 1; i <= lengte; i++) {
-        if (i % stap == 0) {
-            output += "-";
-        } else {
-            output += ".";
+    std::stringstream buf;
+
+    for (int i = 1; i <= lengte; i++)
+    {
+        if (i % stap == 0)
+        {
+            buf << "-";
+        }
+        else
+        {
+            buf << ".";
         }
     }
-    return output;
+    return buf.str();
 }
 
 std::string Pagina(int min, int max, int stap, bool terug)
 {
-    if (min < 0 || max < min) {
+    if (min < 0 || max < min)
+    {
         return "";
     }
-    std::string output = "";
+
+    std::stringstream buf;
     int origineelMinParam = min;
 
-    while (min < max) {
-        output += Regel(min, stap) + "\n";
-        min++;
-    }
-    if (!terug) {
-        return output;
+    for (int i = min; i < max; i++)
+    {
+        buf << Regel(i, stap) + "\n";
     }
 
-    while (max >= origineelMinParam) {
-        output += Regel(max, stap) + "\n";
-        max--;
+    if (!terug)
+    {
+        return buf.str();
     }
 
-    return output;
+    for (int i = max; i >= min; i--)
+    {
+        buf << Regel(i, stap) + "\n";
+    }
+
+    return buf.str();
 }
 
 int main()
