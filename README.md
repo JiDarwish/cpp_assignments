@@ -1,3 +1,0 @@
-# Homework for programming assignments
-
-
