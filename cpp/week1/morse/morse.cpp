@@ -28,7 +28,6 @@ std::string Pagina(int min, int max, int stap, bool terug)
     }
 
     std::stringstream buf;
-    int origineelMinParam = min;
 
     for (int i = min; i < max; i++)
     {

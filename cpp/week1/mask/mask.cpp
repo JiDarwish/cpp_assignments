@@ -21,7 +21,7 @@ Byte unsetMask(Byte source, Byte mask)
 
 bool checkMask(Byte source, Byte mask)
 {
-    return (bool)(source & mask);
+    return (source & mask) == mask; // (Not only has to be 1 but has to match the given mask)
 }
 
 int main()

@@ -9,11 +9,11 @@ std::string charToHex(char c)
 
     std::string out = buf.str();
 
-    if (out.length() < 3)
-    { // 3 because there is always a last character terminating a string which is '\n'
+    if (out.length() <= 2)
+    {
         out = "0" + out;
     }
-    return out + "\n";
+    return out;
 }
 
 std::string intToHex(int x)
@@ -21,13 +21,13 @@ std::string intToHex(int x)
     std::ostringstream buf;
     buf << std::hex << std::uppercase << x << std::endl;
 
-    std::string out = buf.str(); // convert to string
+    std::string out = buf.str(); // convert to string to be able to prepend to it
 
-    if (out.length() < 3)
-    { // 3 because there is always a last character terminating a string which is '\n'
+    if (out.length() <= 2)
+    {
         out = "0" + out;
     }
-    return out + "\n";
+    return out;
 }
 
 std::string floatToHex(float f)
@@ -42,12 +42,14 @@ std::string floatToHex(float f)
 
     std::ostringstream buf;
     buf << std::hex << std::uppercase << converter.myLong;
-    return buf.str() + "\n";
+    return buf.str();
 }
 
 int main()
 {
     std::string result = floatToHex(1.2);
     std::cout << result << std::endl;
+    std::string result2 = intToHex(2);
+    std::cout << result2 << std::endl;
     return 0;
 }
