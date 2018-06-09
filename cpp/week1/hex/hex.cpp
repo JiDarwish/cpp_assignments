@@ -13,7 +13,7 @@ std::string charToHex(char c)
     { // 3 because there is always a last character terminating a string which is '\n'
         out = "0" + out;
     }
-    return out;
+    return out + "\n";
 }
 
 std::string intToHex(int x)
@@ -27,7 +27,7 @@ std::string intToHex(int x)
     { // 3 because there is always a last character terminating a string which is '\n'
         out = "0" + out;
     }
-    return out;
+    return out + "\n";
 }
 
 std::string floatToHex(float f)
@@ -42,7 +42,7 @@ std::string floatToHex(float f)
 
     std::ostringstream buf;
     buf << std::hex << std::uppercase << converter.myLong;
-    return buf.str();
+    return buf.str() + "\n";
 }
 
 int main()

@@ -44,12 +44,15 @@ int processInstructie(int getal, std::string instructie)
   default:
     getal = 0;
   }
-  return getal;
+  return int(getal);
 }
 
 int main()
 {
-  int result = processCode(3, 0);
-  std::cout << result << std::endl;
+  // int result = processCode(3, 0);
+  int andereResult = processInstructie(5, "deel door 2");
+  // std::cout << result << std::endl;
+  std::cout << andereResult << std::endl;
+
   return 0;
 }

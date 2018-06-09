@@ -1,9 +1,11 @@
 #include <iostream>
 #include <string>
+#include <sstream>
 
 std::string Teller(int max, int stappen)
 {
-    if (max <= 1)
+    // Werkt alleen als max tussen 1 en 9 zit
+    if (max <= 1 || max > 9)
     {
         return "foutje";
     }
@@ -24,7 +26,9 @@ std::string Teller(int max, int stappen)
             wiel2 = 0;
         }
     }
-    return std::to_string(wiel3) + std::to_string(wiel2) + std::to_string(wiel1);
+    std::stringstream buf;
+    buf << wiel3 << wiel2 << wiel1;
+    return buf.str();
 }
 
 int main()
