@@ -67,7 +67,7 @@ bool compute(std::string rpn, int &uitkomst)
   std::vector<std::string> strAlsVec = getTokens(rpn);
   std::stack<int> integers; // gebruikt om de nummers te houden
 
-  for (int i = 0; i < strAlsVec.size(); i++)
+  for (unsigned int i = 0; i < strAlsVec.size(); i++)
   {
     Operator oper = getOperator(strAlsVec[i]); // returns the Operator (Enum)
 
@@ -79,13 +79,14 @@ bool compute(std::string rpn, int &uitkomst)
     }
   }
   uitkomst = integers.top();
+  return integers.size() == 1;
 }
 
 int main()
 {
   std::string rpn_line = "12 3 4 * + 7 - 3 /";
   int uitkomst = 0;
-  bool resultaat = compute(rpn_line, uitkomst);
+  compute(rpn_line, uitkomst);
   std::cout << "Uitkomst is: " << uitkomst << std::endl;
   return 0;
 }

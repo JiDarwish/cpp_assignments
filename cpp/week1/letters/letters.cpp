@@ -6,17 +6,17 @@
 std::string maakGrootofKlein(const std::string bron)
 {
     std::ostringstream result;
-
-    for (int i = 0; i < bron.length(); i++)
+    int const SIXTH_POS = 32; // bit on the 6th position (masker)
+    for (unsigned int i = 0; i < bron.length(); i++)
     {
         char newChar = bron.at(i);
         if ((int)newChar % 2 == 0)
         {
-            newChar |= 32; // set bit
+            newChar &= ~(SIXTH_POS); // clear bit
         }
         else
         {
-            newChar &= ~(32); // clear bit
+            newChar |= SIXTH_POS; // set bit
         }
 
         result << newChar;

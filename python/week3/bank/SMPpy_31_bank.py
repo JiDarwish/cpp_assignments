@@ -110,7 +110,7 @@ class bankTest(unittest.TestCase):
         try:
             self.assertEqual(self.bank.checkAccount('Ji'), 0)
         except BankException:
-            self.fail('Test threw an exception')
+            self.fail(BankException)
 
         with self.assertRaises(BankException):
             self.bank.openAccount('Ji')
@@ -137,7 +137,7 @@ class bankTest(unittest.TestCase):
         # 3
         self.assertEqual(self.bank.checkAccount('Ji'), 100)
 
-    # Test 2
+    # Test 3
     def test_withdraw(self):
         '''
             withdraw test:
@@ -221,6 +221,8 @@ class bankTest(unittest.TestCase):
     def test_load(self):
         self.createAccountAddMoney(self.bank, 'Ji', 1000)
         self.createAccountAddMoney(self.bank, 'Emeri', 2000)
+
+        self.createAccountAddMoney(self.bank, 'Frank', 3000)
 
         self.bank.save('testLoading.csv')
 

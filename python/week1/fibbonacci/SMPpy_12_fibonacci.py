@@ -5,12 +5,12 @@
 
 def fibonacci(n):
     if n <= 2:
-        return 1
+        return n
     return fibonacci(n - 1) + fibonacci(n - 2)
 
 if __name__ == '__main__':
 
     for i in range(1, 11):
-        print(fibonacci(i), "\n")
+        print(fibonacci(i), end=" ")
     print()
     print(fibonacci(35))    # Could take a while

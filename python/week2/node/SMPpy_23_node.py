@@ -19,9 +19,11 @@ class List:
         """
         out = "["
         node = self.root
-
+        sep = False
         while node != None:
-            out += node.val
+            if sep: out += ", "
+            if not sep: sep = True
+            out += node.val 
             node = node.lnk
         out += "]"
 

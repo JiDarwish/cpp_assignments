@@ -9,7 +9,7 @@ def processOperation(num1, num2, operator):
   elif operator == '*':
     return int(num2) * int(num1)
   elif operator == '/':
-    return int(num2) / int(num1)
+    return int(num2) // int(num1)
   else:
     return int(num2) - int(num1)
 

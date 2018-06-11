@@ -66,7 +66,6 @@ std::string lees(std::string regel)
 {
   std::string out = "";
   int numLettersInOut = regel.length() / 8;
-  std::cout << numLettersInOut << std::endl;
   for (int i = 0; i < numLettersInOut; i++)
   {
     int pos = i * 8;
