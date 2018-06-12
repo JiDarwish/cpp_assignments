@@ -71,11 +71,14 @@ bool compute(std::string rpn, int &uitkomst)
   {
     Operator oper = getOperator(strAlsVec[i]); // returns the Operator (Enum)
 
-    bool isOperator = procesOperator(integers, oper);
-    if (!isOperator)
-    {
+    if (oper == ONBEKEND)
+    {                                              // If not an operator => number, push it onto the stack
       int intFromStr = atoi(strAlsVec[i].c_str()); // string to int (c string)
       integers.push(intFromStr);
+    }
+    else
+    {
+      procesOperator(integers, oper);
     }
   }
   uitkomst = integers.top();
