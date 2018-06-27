@@ -37,8 +37,8 @@ if __name__ == '__main__':
             log.setLevel(logging.DEBUG)
         elif opt == '-E':
             log.setLevel(logging.ERROR)
-	elif opt == '-n':
-	    logfile = arg
+        elif opt == '-n':
+	        logfile = arg
 
     lh = logging.StreamHandler() if logfile == '-' else logging.FileHandler(logfile)
     # TODO Add time to the logformat

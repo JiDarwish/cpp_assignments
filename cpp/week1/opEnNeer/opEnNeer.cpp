@@ -27,6 +27,7 @@ std::string produceerReeks(int x)
 int main()
 {
   int x;
+  std::cout << "Geef een nummer: ";
   std::cin >> x;
   std::cout << produceerReeks(x) << std::endl;
   return 0;
